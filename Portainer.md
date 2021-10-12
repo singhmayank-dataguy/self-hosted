@@ -11,11 +11,21 @@ I created a file called portainer_run.sh and pasted the following into it
 pi@RPi4:~ $ cat portainer_run.sh
 
 #!/bin/bash
+echo 'Removing Old Portainer Image-'  #Portainer can't be updated from within its UI.....  
+sudo docker rmi portainer -f          
+echo 'Done...'
+
+echo 'Removing Old Container-'        #.....so additional steps need to be taken
+sudo docker rm portainer
+echo 'Done....'
+
 sudo docker run -d \
 -p 8000:8000 -p 9000:9000 \
 --name=portainer --restart=always \
 -v /var/run/docker.sock:/var/run/docker.sock \
--v portainer_data:/data portainer/portainer-ce
+-v portainer_data:/data \
+portainer/portainer-ce:latest
+
 ```
 
 4. Need to create a volume which maps the Portainer data directory (inside the container) to an actual directory on my hard disk. 
