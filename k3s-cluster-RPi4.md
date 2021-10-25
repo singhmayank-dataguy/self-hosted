@@ -56,7 +56,7 @@ Get the token on master. The optput of this command will be used on worker node 
 pi@pi4-1:~ $ sudo cat /var/lib/rancher/k3s/server/node-token
 ```
 
-To install k3s agent and join the cluster, run the following command:
+To install k3s agent and join the cluster, run the following command on worker node:
 ```
 pi@pi4-2:~ $ curl -sfL https://get.k3s.io | K3S_TOKEN=K10570ef4b83a2fa330e102840af2aa92387e5869b98202f17543f05c44b8a5ccc3::server:3c3b1285b2610a6c3de5ee493836ba4a K3S_URL=https://192.168.29.201:6443 sh -
 ```
