@@ -1,4 +1,4 @@
-version: '2'
+version: '3'        #Chnage the version to appropriate one as per your environment
 
 volumes:
   nextcloud:
