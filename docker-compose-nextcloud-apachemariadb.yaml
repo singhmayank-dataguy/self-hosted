@@ -6,7 +6,7 @@ volumes:
 # This uses apache and Mariadb
 services:
   db:
-    image: mariadb
+    image: mariadb      #There is an issue with "latest" mariadb image so I had to downgrade a version and choose 10.5 instead
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
